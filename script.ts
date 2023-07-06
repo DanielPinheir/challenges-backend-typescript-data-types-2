@@ -86,8 +86,9 @@ const listUser = (): User[] => {
 const detailUser = (cpf: string): User => {
   const bd = fileRead() as User[];
   const user = bd.find((user) => String(user.cpf) === String(cpf));
+
   if (!user) {
-    throw new Error("Usuario não encontrado");
+    throw new Error("User not found.");
   }
   return user;
 };
@@ -95,8 +96,9 @@ const detailUser = (cpf: string): User => {
 const updateUser = (cpf: string, data: User): User => {
   const bd = fileRead() as User[];
   const user = bd.find((user) => String(user.cpf) === String(cpf));
+
   if (!user) {
-    throw new Error("Usuario não encontrado");
+    throw new Error("User not found.");
   }
   //copy data of source object to target object
   Object.assign(user, data);
@@ -104,19 +106,36 @@ const updateUser = (cpf: string, data: User): User => {
   return data;
 };
 
-const updateDataUser = {
-  name: "Daniel",
-  email: "daniel@gmail.com",
-  cpf: "12345678911",
-  profession: "dev back end",
-  address: {
-    zipCode: "12345678",
-    street: "Central Avenue",
-    addressComplement: "apartment 501",
-    neighborhood: "Downtown",
-    city: "Londres",
-  },
+const deleteUser = (cpf: string): User => {
+  const bd = fileRead() as User[];
+  const user = bd.find((user) => String(user.cpf) === String(cpf));
+
+  if (!user) {
+    throw new Error("User not found.");
+  }
+
+  const databaseDeleteUser = bd.filter(
+    (user) => String(user.cpf) !== String(cpf)
+  );
+
+  fileWrite(databaseDeleteUser);
+
+  return user;
 };
 
+// const updateDataUser = {
+//   name: "Daniel",
+//   email: "daniel@gmail.com",
+//   cpf: "12345678911",
+//   profession: "dev back end",
+//   address: {
+//     zipCode: "12345678",
+//     street: "Central Avenue",
+//     addressComplement: "apartment 501",
+//     neighborhood: "Downtown",
+//     city: "Londres",
+//   },
+// };
+
 //const daniel = detailUser("12345678911");
-console.log(updateUser("12345678911", updateDataUser));
+//console.log(updateUser("12345678911", updateDataUser));
