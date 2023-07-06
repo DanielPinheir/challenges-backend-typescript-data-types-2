@@ -1,0 +1,14 @@
+[
+  {
+    "name": "Daniel",
+    "email": "daniel@gmail.com",
+    "cpf": "123456789-11",
+    "profession": "student",
+    "address": {
+      "zipCode": "12345678",
+      "street": "A Street",
+      "neighborhood": "Downtown",
+      "city": "Londres"
+    }
+  }
+]
