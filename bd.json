@@ -2,11 +2,12 @@
   {
     "name": "Daniel",
     "email": "daniel@gmail.com",
-    "cpf": "123456789-11",
-    "profession": "student",
+    "cpf": "12345678911",
+    "profession": "dev back end",
     "address": {
       "zipCode": "12345678",
-      "street": "A Street",
+      "street": "Central Avenue",
+      "addressComplement": "apartment 501",
       "neighborhood": "Downtown",
       "city": "Londres"
     }
