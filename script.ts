@@ -123,19 +123,14 @@ const deleteUser = (cpf: string): User => {
   return user;
 };
 
-// const updateDataUser = {
-//   name: "Daniel",
-//   email: "daniel@gmail.com",
-//   cpf: "12345678911",
-//   profession: "dev back end",
-//   address: {
-//     zipCode: "12345678",
-//     street: "Central Avenue",
-//     addressComplement: "apartment 501",
-//     neighborhood: "Downtown",
-//     city: "Londres",
-//   },
-// };
+const filterUser = (profession?: string): User[] => {
+  const bd = fileRead() as User[];
 
-//const daniel = detailUser("12345678911");
-//console.log(updateUser("12345678911", updateDataUser));
+  const users = bd.filter((user) => {
+    if (profession) {
+      return String(user.profession) === String(profession);
+    }
+    return user;
+  });
+  return users;
+};
